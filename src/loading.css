@@ -1,0 +1,37 @@
+.loading-holder .loader {
+    width: 15vw;
+    height: 15vw;
+    border: 10px solid transparent;
+    border-top-color: #4169E1;
+    border-radius: 9999px;
+    animation: load 1.5s linear infinite;
+    position: absolute;
+    top: -25%;
+    left: -32%;
+    /* Fix Later, Spinner Not Truly Centered */
+}
+
+@keyframes load {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+.loading-holder .loader {
+    position: absolute;
+    width: 0%;
+    border: 8px solid transparent;
+    bottom: -30px;
+    left: -15%;
+    border-color: #4169E1;
+    border-radius: 9999px;
+    animation: load 2s linear forwards;
+}
+
+@keyframes load {
+    to {
+        width: 120%;
+    }    
+}

@@ -2,12 +2,54 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/png" href="/icon.png" />
+        <link rel="icon" type="image/svg" href="/icon.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>UniverseTS</title>
+        <meta name="description" content="Universe">
+        <link rel="stylesheet" href="/src/fonts.css">
         <link rel="stylesheet" href="/src/style.css">
+        <script type="module" src="/src/misc/loader.ts"></script>
     </head>
     <body>
+        <div class="background" id="background"></div>
+        <div class="loading" id="loading">
+            <div class="loading-holder">
+                <img src="/icon.svg" alt="Universe Logo">
+                <div class="loader"></div>
+            </div>
+            <div class="bar" id="loadingBar"></div>
+        </div>
+        <div class="main">
+            <div class="mainContainer">
+                <div class="gamePanel">
+                    <div class="logoHolder">
+                        <img src="/icon.svg" alt="Universe Logo">
+                        <h1>Universe</h1>
+                    </div>
+                    <div class="buttonSelection">
+                        <button>Start New Game</button>
+                        <button>Find Multiplayer Game</button>
+                        <button>Options</button>
+                        <!-- <button>Exit</button> -->
+                    </div>
+                </div>
+                <div class="serverPanel">
+    
+                </div>
+            </div>
+            <div class="optionsBar">
+                <div class="barContainter">
+                    <div>
+                        <button>Go Back</button>
+                    </div>
+                    <div class="quickActions">
+                        <button>
+                            <img src="/icons/US.svg" alt="US Flag">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script type="module" src="/src/main.ts"></script>
     </body>
 </html>
