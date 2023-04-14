@@ -2,6 +2,8 @@
     --dark: #1E1E1E;
     --blue: #4169E1;
     --radius: 8px;
+    --light: #2E2E2E;
+    --round: 1rem;
 }
 
 body {
@@ -9,6 +11,30 @@ body {
     padding: 0;
     overflow: hidden;
     font-family: 'Quicksand', sans-serif;
+    color: white;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 0.4rem;
+    margin: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 999px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--blue);
+    border-radius: 999px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .background {
@@ -22,6 +48,7 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
     transition: background 5s linear;
+    z-index: -1;
 }
 
 canvas {
@@ -110,68 +137,39 @@ button::after {
     transition: width 0.5s;
 }
 
+
+/* Start of Main CSS */
+
+
 .main {
-    width: 100%;
-    height: 100%;
-}
-
-.optionsBar {
-    width: 100%;
-    height: 4rem;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    background-color: #1E1E1E80;
-    backdrop-filter: blur(10px);
-}
-
-.barContainter {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-}
-
-.optionsBar button {
-    height: 48px;
-    padding: 0.5rem;
-}
-
-.quickActions button {
-    width: 48px;
-}
-
-.mainContainer {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    padding: 64px;
+    grid-template-rows: auto 4rem;
 }
 
-.gamePanel {
-    display: grid;
-    grid-template-rows: auto;
-    gap: 4rem;
-}
-
-.logoHolder {
-    background-color: var(--dark);
-    padding: 1rem;
+.text-holder {
+    background: var(--dark);
+	color: white;
+	border: none;
     border-radius: var(--radius);
-    display: grid;
-    grid-template-columns: auto auto;
-    align-items: center;
-    color: white;
+	padding: 1.5rem;
     position: relative;
-    font-size: 1.5rem;
-    gap: 1rem;
+    width: fit-content;
 }
 
-.logoHolder::after {
+.holder {
+    background: var(--dark);
+	color: white;
+	border: none;
+    border-radius: var(--radius);
+	padding: 1rem;
+    position: relative;
+    width: fit-content;
+}
+
+.holder::after {
     content: '';
     position: absolute;
     left: 0;
@@ -183,6 +181,97 @@ button::after {
     border-radius: 0 0 var(--radius) var(--radius);
 }
 
+.optionsBar {
+    width: 100%;
+    height: 100%;
+    background-color: #1E1E1E80;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.barContainter {
+    width: 100%;
+    height: 100%;
+
+}
+
+.optionsBar button {
+    height: 48px;
+    padding: 0.5rem;
+}
+
+#return span {
+    vertical-align: middle;
+    padding-right: 0.5rem;
+}
+
+#return img {
+    height: 100%;
+    vertical-align: middle;
+}
+
+.quickActions {
+    display: flex;
+    gap: 1rem;
+}
+
+.quickActions .icon {
+    width: 48px;
+    height: 48px;
+}
+
+.quickActions .icon img {
+    height: 20px;
+}
+
+.panels {
+    padding: 3rem;
+}
+
+.mainPanel {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.gamePanel {
+    display: grid;
+    grid-template-rows: min-content auto;
+    gap: 3rem;
+}
+
+.logoHolder {
+    background-color: var(--dark);
+    padding: 1rem;
+    height: fit-content;
+    border-radius: var(--radius);
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    color: white;
+    position: relative;
+    font-size: 1.5rem;
+    gap: 1rem;
+}
+
+/* .logoHolder::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: var(--radius);
+    background: var(--blue);
+    width: 100%;
+    display: inline-block;
+    border-radius: 0 0 var(--radius) var(--radius);
+} */
+
 .logoHolder img {
     width: 6rem;
     height: 6rem;
@@ -192,4 +281,110 @@ button::after {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+/* #singleplayerPanel {
+    width: 100vw;
+    height: 100vh;
+    display: none;
+} */
+
+.serverPanel {
+    width: 100%;
+    height: 100%;
+    display: none;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1rem;
+}
+
+.serverSettings {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.serverType {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.serverListing {
+    width: 100%;
+    height: 100%;
+    max-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    background-color: var(--light);
+    border: 0.25rem solid var(--dark);
+    border-radius: var(--round);
+    overflow: auto;
+}
+
+.serverSelect {
+    width: 100%;
+    height: 100%;
+    max-height: 70vh;
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    background-color: var(--light);
+    border: 0.25rem solid var(--dark);
+    border-radius: var(--round);
+    overflow: auto;
+}
+
+.serverSelect .name {
+    padding: 4px 0;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.serverSelect .ip {
+    padding: 4px 0;
+    margin: 0;
+    font-style: italic;
+    color: lightgray;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.serverSelect .unused {
+    height: 100%;
+}
+
+.serverSelect .joinGame {
+    width: 100%;
+}
+
+.gamemode {
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.gamemode img {
+    padding-left: 0.5rem;
+    height: 2rem;
+    width: 2rem;
+}
+
+.gamemode h2 {
+    font-size: 1rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }

@@ -5,7 +5,7 @@ export async function downloadAssets(progressCallback: (percent: number) => void
     
     let downloadedCount = 0;
   
-    const blobs = await Promise.all(lines.map(url => {
+    await Promise.all(lines.map(url => {
         return fetch(`/assets/files/${url}`).then(response => {
             downloadedCount++;
             progressCallback((downloadedCount / lines.length) * 100);

@@ -8,6 +8,9 @@ export default defineConfig({
                 target: 'ws://localhost:5174',
                 ws: true,
             },
+            '/servers': {
+                target: 'http://localhost:5175',
+            }
         },
     },
 })
